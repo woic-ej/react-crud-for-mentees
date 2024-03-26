@@ -1,4 +1,4 @@
-# Mentoring Assignment for students - April
+# Mentoring Assignment for mentees - April
 
 ## How to start this project
 
@@ -8,7 +8,7 @@
     step 4: npm start
 
 ## To do
-Make the ShowUser, CreateUser, EditUser page work!
-Detailed descriptions are written on each page.
+Make ShowUser, CreateUser, and EditUser pages work! <br/>
+Detailed descriptions are written on each page. <br/>
 Good luck and happy coding 😁
 
