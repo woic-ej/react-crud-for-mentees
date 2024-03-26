@@ -1,0 +1,40 @@
+{
+  "user": [
+    {
+      "name": "John",
+      "email": "john@example.com",
+      "phone": "(555) 555-1234",
+      "id": "1"
+    },
+    {
+      "name": "Mary",
+      "email": "\tmary@example.com",
+      "phone": "(555) 555-1234",
+      "id": "2"
+    },
+    {
+      "name": "Dooley",
+      "email": "july@example.com",
+      "phone": "(555) 555-8521",
+      "id": "3"
+    },
+    {
+      "name": "Doe",
+      "email": "Doe@example.com",
+      "phone": "(555) 555-7896",
+      "id": "5"
+    },
+    {
+      "id": "b8e7",
+      "name": "asdf",
+      "email": "inabang.dev@gmail.com",
+      "phone": "010 3853 4345"
+    },
+    {
+      "id": "f4b1",
+      "name": "방인아",
+      "email": "dds@df.cc",
+      "phone": "dsf"
+    }
+  ]
+}
