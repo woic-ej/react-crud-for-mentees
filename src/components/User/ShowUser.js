@@ -10,15 +10,40 @@ const ShowUser = () => {
   const handleDeleteUser = async (id) => {
     // fetch delete api(endpoint:USER_API_URL) & update state
     // handle loading state, error
+    try {
+      await fetch(`${USER_API_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("Data successfully deleted");
+      setIsLoading(true);
+    } catch (error) {
+      setError(error);
+    }
   };
 
   useEffect(() => {
     const handleGetUsers = async () => {
       // fetch users(endpoint:USER_API_URL) api & update state
       // handle error
+      try {
+        await fetch(USER_API_URL)
+          .then((response) => {
+            if (!response.ok) throw new Error("예외가 발생했습니다.");
+            return response.json();
+          })
+          .then((data) => {
+            setUsers(data);
+          });
+        setIsLoading(false);
+      } catch (error) {
+        setError(error);
+      }
     };
     handleGetUsers();
-  }, []);
+  }, [isLoading]); //여기에 어떤값을 넣어야 할 지..
 
   if (users.length === 0) return <h1>no user found</h1>;
 

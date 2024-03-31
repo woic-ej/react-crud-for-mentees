@@ -17,6 +17,28 @@ const CreateUser = () => {
   const handleInputChange = (event) => {
     event.preventDefault();
     // update user state using input event
+    const inputName = event.target.name;
+    const inputData = event.target.value;
+    setUser({
+      ...user,
+      [inputName]: inputData,
+    });
+    // if (event.target.name === "name") {
+    //   setUser({
+    //     ...user,
+    //     name: inputData,
+    //   });
+    // } else if (event.target.name === "email") {
+    //   setUser({
+    //     ...user,
+    //     email: inputData,
+    //   });
+    // } else {
+    //   setUser({
+    //     ...user,
+    //     phone: inputData,
+    //   });
+    // }
   };
 
   const handleSubmit = async (event) => {
@@ -25,6 +47,20 @@ const CreateUser = () => {
     // handle loading state, error
     // navigate to '/show-user' page when api call success
     // initialize user state to empty object
+    try {
+      await fetch(USER_API_URL, {
+        method: "POST",
+        cache: "no-cache",
+        body: JSON.stringify(user),
+      }).then((response) => {
+        if (!response.ok) throw new Error("예외가 발생했습니다.");
+        navigate("../show-user");
+      });
+    } catch (error) {
+      setError(error);
+    }
+
+    setUser({});
   };
 
   return (
@@ -39,7 +75,13 @@ const CreateUser = () => {
           <label htmlFor="name" className="form-label">
             Name
           </label>
-          <input type="text" className="form-control" id="name" name="name" />
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            name="name"
+            onChange={handleInputChange}
+          />
         </div>
         <div className="mb-3 mt-3">
           <label htmlFor="email" className="form-label">
@@ -50,13 +92,20 @@ const CreateUser = () => {
             className="form-control"
             id="email"
             name="email"
+            onChange={handleInputChange}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="pwd" className="form-label">
             Phone
           </label>
-          <input type="text" className="form-control" id="phone" name="phone" />
+          <input
+            type="text"
+            className="form-control"
+            id="phone"
+            name="phone"
+            onChange={handleInputChange}
+          />
         </div>
         <button type="submit" className="btn btn-primary submit-btn">
           Submit
