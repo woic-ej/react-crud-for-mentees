@@ -81,7 +81,7 @@ const EditUser = () => {
             id="name"
             name="name"
             onChange={handleInputChange}
-            value={user?.name}
+            value={user.name || ""}
           />
         </div>
         <div className="mb-3 mt-3">
@@ -94,7 +94,7 @@ const EditUser = () => {
             id="email"
             name="email"
             onChange={handleInputChange}
-            value={user?.email}
+            value={user.email || ""}
           />
         </div>
         <div className="mb-3">
@@ -107,7 +107,7 @@ const EditUser = () => {
             id="phone"
             name="phone"
             onChange={handleInputChange}
-            value={user?.phone}
+            value={user.phone || ""}
           />
         </div>
         <button type="submit" className="btn btn-primary submit-btn">
